@@ -1,0 +1,136 @@
+/*/////////////////////////////////////////////////
+Module - Resources
+/////////////////////////////////////////////////*/
+.m-resources .column {
+  padding: 0;
+}
+.m-resources .row .row {
+  margin: 0;
+}
+.r-item {
+  background-size: cover;
+  background-position: center center;
+  border: 2px solid white;
+  padding: 0;
+  height: 157px;
+}
+.r-item .resources {
+  border: none;
+  display: block;
+  padding: 0.5em;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+.r-item .resources:hover {
+  border-color: #ccc;
+}
+.r-item .resources:hover .r-well {
+  bottom: 0;
+  -webkit-transition: all 0.2s ease-out 0s;
+  -moz-transition: all 0.2s ease-out 0s;
+  -o-transition: all 0.2s ease-out 0s;
+  -ms-transition: all 0.2s ease-out 0s;
+  transition: all 0.2s ease-out 0s;
+}
+.r-item .r-header {
+  padding: 0.5em 0.5em 0;
+}
+.r-item .r-header .r-links a {
+  color: inherit;
+  border: none;
+  margin: 0 0 0 .5em;
+}
+.r-item .r-title .r-subtitle {
+  font-size: 50%;
+  display: block;
+  line-height: 1;
+  font-weight: 900;
+}
+.r-item .r-well {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  max-height: 157px;
+  font-size: 0.75em;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px;
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  -webkit-transition: all 0.8s ease-out 0s;
+  -moz-transition: all 0.8s ease-out 0s;
+  -o-transition: all 0.8s ease-out 0s;
+  -ms-transition: all 0.8s ease-out 0s;
+  transition: all 0.8s ease-out 0s;
+}
+.r-item .r-well .r-header {
+  padding: 0;
+}
+.r-item .r-well .r-content p {
+  display: inline;
+  margin: 0;
+}
+.r-item .r-well .r-content p + p:before {
+  content: "\2761";
+  padding-right: 0.1em;
+  padding-left: 0.4em;
+}
+.r-item .format-image {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.r-item .format-image .r-well {
+  bottom: -80%;
+}
+.r-item.r-feature {
+  width: 510px;
+  height: 314px;
+}
+.r-item.r-feature .r-title {
+  font-size: 72px;
+}
+.r-item.r-feature a:before {
+  content: '';
+  border-style: solid;
+  border-width: 0;
+  border-color: white white #BBB #BBB;
+  box-shadow: 2px -2px 10px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  -webkit-transition: border-width 1s ease-in 0s;
+  -moz-transition: border-width 1s ease-in 0s;
+  -o-transition: border-width 1s ease-in 0s;
+  -ms-transition: border-width 1s ease-in 0s;
+  transition: border-width 1s ease-in 0s;
+}
+.r-item.r-feature .r-well {
+  background-color: #EEE;
+  border-top: 5px solid;
+  color: inherit;
+  padding: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: -25%;
+  left: 0;
+}
+.r-item.r-feature .r-well .r-content {
+  height: auto;
+  overflow: hidden;
+}
+.r-item.r-feature a:hover:before {
+  border-width: 25px;
+  -webkit-transition: border-width 0.1s ease-in 0s;
+  -moz-transition: border-width 0.1s ease-in 0s;
+  -o-transition: border-width 0.1s ease-in 0s;
+  -ms-transition: border-width 0.1s ease-in 0s;
+  transition: border-width 0.1s ease-in 0s;
+}
+.r-item.r-feature a:hover .r-well {
+  bottom: 0;
+}

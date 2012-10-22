@@ -1,0 +1,139 @@
+/*
+
+	
+	Theme
+
+
+*/
+
+/*/////////////////////////////////////////////////
+Shared
+/////////////////////////////////////////////////*/
+
+/* set custom fonts */
+
+body,
+body p {
+	font-family: "Open Sans","Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: "ostrich","Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-weight: 900;
+}
+
+h1, h2,
+.h1, .h2 {
+	font-weight: normal;
+}
+
+h3, h4, h5, h6,
+.h3, .h4, .h5, .h6 {
+	letter-spacing: 2px;
+}
+
+.ostrich {
+	font-family: "ostrich","Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+	font-weight: normal;
+}
+
+.ostrich.bold,
+h1.bold, h2.bold, h3.bold, h4.bold, h5.bold, h6.bold,
+.h1.bold, .h2.bold, .h3.bold, .h4.bold, .h5.bold, .h6.bold {
+	font-weight: 900;
+}
+
+.ostrich.stripe,
+h1.stripe, h2.stripe, h3.stripe, h4.stripe, h5.stripe, h6.stripe,
+.h1.stripe, .h2.stripe, .h3.stripe, .h4.stripe, .h5.stripe, .h6.stripe {
+	font-weight: 700;
+}
+
+h1 a:link, h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 a:link,
+.h1 a:link, .h2 a:link, .h3 a:link, .h4 a:link, .h5 a:link, .h6 a:link,
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover,
+.h1 a:hover, .h2 a:hover, .h3 a:hover, .h4 a:hover, .h5 a:hover, .h6 a:hover {
+	border:none;
+	margin-bottom:0;
+}
+
+.highlight { background: #f3b77e; }
+
+
+/*/////////////////////////////////////////////////
+Navigation
+/////////////////////////////////////////////////*/
+
+.contain-to-grid {
+	background-color: white;
+	box-shadow: 0 5px 10px rgba(0,0,0,.5);
+}
+
+.top-bar {
+}
+
+.top-bar a { border: none; margin-bottom: 0; }
+
+.top-bar .menu-item a { color:#777; }
+
+/* drop down */
+
+.top-bar ul > li.has-dropdown:not(.current-menu-item) a:after {
+	border-color: #777 transparent transparent transparent; 
+}
+
+.top-bar ul > li.has-dropdown:not(.current-menu-item):hover a:after {
+	border-color: #41B549 transparent transparent transparent; 
+}
+
+.top-bar ul > li.current-menu-item.has-dropdown a:after {
+	border-color: #FFF transparent transparent transparent; 
+}
+
+.top-bar .has-dropdown .sub-menu {
+	background-color: white;
+	box-shadow: 0 5px 10px rgba(0,0,0,.5);
+}
+
+/*/////////////////////////////////////////////////
+Stage - top area with hero images, etc.
+/////////////////////////////////////////////////*/
+
+.m-stage {
+	background-color: #444;
+}
+
+.m-stage .slide1 {
+	background: #41b549; /* Old browsers */
+	background: -moz-linear-gradient(top,  #41b549 53%, #71da78 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(53%,#41b549), color-stop(100%,#71da78)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #41b549 53%,#71da78 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #41b549 53%,#71da78 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #41b549 53%,#71da78 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #41b549 53%,#71da78 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#41b549', endColorstr='#71da78',GradientType=0 ); /* IE6-9 */
+	color:white;
+	padding:30px;
+}
+
+.m-stage .slide1 * { color: inherit; }
+
+
+/*/////////////////////////////////////////////////
+=Content
+/////////////////////////////////////////////////*/
+
+/* ==Home Page
+----------------------------------------------- */
+
+section[role="inner-page"] {
+  border-top: 1px solid #ccc;
+}
+
+/* ==Main Body
+----------------------------------------------- */
+
+.site-main {
+	background-color:#FFF;
+}
