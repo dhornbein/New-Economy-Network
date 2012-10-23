@@ -4,8 +4,11 @@ $(document).ready(function() {
     animation: 'vertical-slide'
   });
 
-   
-  $(document).foundationTooltips();
+  $('#iso-container').isotope({
+    // options
+    itemSelector : '.r-item',
+    layoutMode : 'fitRows'
+  });
 
   $(window).load(function () {
     setTimeout(function () {

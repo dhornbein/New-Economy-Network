@@ -20,37 +20,7 @@ get_header(); ?>
 							<div class="four column">
 								<h1 class="page-title">
 									<?php
-										if ( is_category() ) {
-											printf( __( 'Category Archives: %s', 'nen' ), '<span>' . single_cat_title( '', false ) . '</span>' );
-											
-										} elseif ( is_tag() ) {
-											printf( __( 'Tag Archives: %s', 'nen' ), '<span>' . single_tag_title( '', false ) . '</span>' );
-											
-										} elseif ( is_author() ) {
-											/* Queue the first post, that way we know
-											 * what author we're dealing with (if that is the case).
-											*/
-											the_post();
-											printf( __( 'Author Archives: %s', 'nen' ), '<span class="vcard"><a class="url fn n" href="' . get_author_posts_url( get_the_author_meta( "ID" ) ) . '" title="' . esc_attr( get_the_author() ) . '" rel="me">' . get_the_author() . '</a></span>' );
-											/* Since we called the_post() above, we need to
-											 * rewind the loop back to the beginning that way
-											 * we can run the loop properly, in full.
-											 */
-											rewind_posts();
-											
-										} elseif ( is_day() ) {
-											printf( __( 'Daily Archives: %s', 'nen' ), '<span>' . get_the_date() . '</span>' );
-											
-										} elseif ( is_month() ) {
-											printf( __( 'Monthly Archives: %s', 'nen' ), '<span>' . get_the_date( 'F Y' ) . '</span>' );
-											
-										} elseif ( is_year() ) {
-											printf( __( 'Yearly Archives: %s', 'nen' ), '<span>' . get_the_date( 'Y' ) . '</span>' );
-											
-										} else {
-											_e( 'Resource Library', 'nen' );
-											
-										}
+										_e( 'Resource Library', 'nen' );
 									?>
 								</h1>
 							</div>
@@ -74,7 +44,7 @@ get_header(); ?>
 						</div>
 					</header><!-- .page-header -->
 			
-					<div class="row full collapse">
+					<div id="iso-container" class="row full collapse">
 						<?php /* Start the Loop */ 
 
 						$colors = array(
@@ -98,9 +68,32 @@ get_header(); ?>
 							$color = $colors[ 'default'];
 						}
 
+						
+
+						$categories = wp_get_object_terms($post->ID, 'section');
+						
+						$cats = array();
+
+						if($categories){
+							foreach($categories as $category) {
+								$cats[] = $category->slug;
+							}
+						}
+
+						if ( in_array( 'feature' , $cats ) ) 
+						{ 
+							$class = 'r-feature six';
+
+							$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'resource-feature' );
+
+						} else { 
+							$class = 'three'; 
+							$image = false;
+						}
+
 						?>
-				
-							<article class="three column mobile-two r-item <?php echo $color; ?>"><?php get_template_part( 'm_resource', get_post_format( $post->ID ) ); ?></article>
+							
+							<article class="column mobile-two r-item <?php echo $color . ' ' . $class; ?>"<?php if ( $image ) { echo ' style="background-image:url(' . $image[0] . ')"'; } ?>><?php get_template_part( 'm_resource', get_post_format( $post->ID ) ); ?></article>
 				
 						<?php endwhile; ?>
 				
