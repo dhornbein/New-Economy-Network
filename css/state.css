@@ -192,7 +192,8 @@ Break Points
 	}
 
 }
-/* Extended items */
+
+/* screen size is less than 1150 */
 @media (max-width: 1150px) {
 
 	/*Slideshow nav*/
@@ -208,4 +209,13 @@ Break Points
 
 	.orbit-wrapper .slider-nav span { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0); opacity: 0; -webkit-transition: opacity 400ms; -moz-transition: opacity 400ms; -o-transition: opacity 400ms; transition: opacity 400ms; }
 	.orbit-wrapper:hover .slider-nav span { filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100); opacity: 1; }
+
+	/*resource item title size*/
+	.r-item h1.r-title { font-size:250%; }
+
+	.r-item .r-content > * { margin-bottom: .5em }
+	.r-item .r-content {
+		padding: .5em;
+		line-height: 1.25;
+	}
 }

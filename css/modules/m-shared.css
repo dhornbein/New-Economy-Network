@@ -7,6 +7,26 @@
 */
 
 /*/////////////////////////////////////////////////
+Small elements
+/////////////////////////////////////////////////*/
+
+/* Labels ---------------------- */
+.label { padding: 0 4px 0; font-size: 0.8em; font-weight: bold; text-align: center; text-decoration: none; line-height: 1rem; white-space: nowrap; display: inline; position: relative; bottom: 1px; color: #fff; background: #41b549; }
+.label.radius { -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
+.label.round { padding: 0 7px 0; -webkit-border-radius: 1000px; -moz-border-radius: 1000px; -ms-border-radius: 1000px; -o-border-radius: 1000px; border-radius: 1000px; }
+.label.alert { background-color: #961e1b; }
+.label.success { background-color: #71da78; }
+.label.secondary { background-color: #e9e9e9; color: #505050; }
+
+.label a { color:inherit; border:none; margin-bottom: 0; }
+.label a:hover { color:inherit; border:none; margin-bottom: 0; }
+
+/* Link List */
+ul.link-list { margin: 0 0 1.5em -1em; padding: 0; list-style: none; overflow: hidden; }
+ul.link-list li { list-style: none; float: left; margin-left: 1em; display: block; }
+ul.link-list li a { display: block; }
+
+/*/////////////////////////////////////////////////
 Posts Mini Loop
 /////////////////////////////////////////////////*/
 

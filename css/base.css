@@ -211,6 +211,11 @@
     a:hover {
         border-bottom-style: solid;
     }
+
+    a.clean {
+        border-bottom: 0;
+        margin-bottom: 0;
+    }
     
     a:active {
         outline: none;

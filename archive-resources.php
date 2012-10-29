@@ -43,57 +43,41 @@ get_header(); ?>
 							?>
 						</div>
 					</header><!-- .page-header -->
+
+					<nav>
+
+						<?php 
+						$terms = get_terms("section");
+						$count = count($terms);
+						if ( $count > 0 ){
+						    echo '<ul class="nav-bar">';
+						    foreach ( $terms as $term ) {
+						      echo '<li><a class="clean" href="' . get_term_link( $term->slug, $term->taxonomy ) . '" title="' . sprintf(__("View all post filed under %s", "my_localization_domain"), $term->name) . '">' . $term->name . '</li>';
+						       
+						    }
+						    echo '</ul>';
+						}
+						?>
+
+
+						<!-- <ul class="nav-bar">
+						  <li class="active"><a href="#">Nav Item 1</a></li>
+						  <li class="has-flyout">
+						    <a href="#">Nav Item 2</a>
+						    <a href="#" class="flyout-toggle"><span> </span></a>
+						    <ul class="flyout">
+						      <li><a href="#">Sub Nav 1</a></li>
+						      <li><a href="#">Sub Nav 2</a></li>
+						      <li><a href="#">Sub Nav 3</a></li>
+						    </ul>
+						  </li>
+						</ul> -->
+					</nav>
 			
-					<div id="iso-container" class="row full collapse">
-						<?php /* Start the Loop */ 
-
-						$colors = array(
-							'default' => 'c-green-bkg  c-white',
-							'video' => 'c-red-bkg  c-white',
-							'link' => 'c-blue-bkg  c-white',
-							'quote' => 'c-yellow-bkg  c-white'
-						);
-
-						?>
-						<?php while ( have_posts() ) : the_post(); 
-
-						$color = '';
-
-						$format = trim( get_post_format( $post->ID ) );
-
-						if ( array_key_exists( $format , $colors ) )
-						{
-							$color = $colors[ $format ];
-						} else {
-							$color = $colors[ 'default'];
-						}
-
-						
-
-						$categories = wp_get_object_terms($post->ID, 'section');
-						
-						$cats = array();
-
-						if($categories){
-							foreach($categories as $category) {
-								$cats[] = $category->slug;
-							}
-						}
-
-						if ( in_array( 'feature' , $cats ) ) 
-						{ 
-							$class = 'r-feature six';
-
-							$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'resource-feature' );
-
-						} else { 
-							$class = 'three'; 
-							$image = false;
-						}
-
-						?>
+					<div class="row full collapse">
+						<?php while ( have_posts() ) : the_post(); ?>
 							
-							<article class="column mobile-two r-item <?php echo $color . ' ' . $class; ?>"<?php if ( $image ) { echo ' style="background-image:url(' . $image[0] . ')"'; } ?>><?php get_template_part( 'm_resource', get_post_format( $post->ID ) ); ?></article>
+							<?php get_template_part( 'm_resource', 'wrapper' ); ?>
 				
 						<?php endwhile; ?>
 				

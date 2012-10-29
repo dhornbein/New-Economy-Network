@@ -105,6 +105,10 @@ hr.space { border: none; border-width: 0; clear: both; margin: 22px 0; height: 0
 
 #map_canvas object { max-width: none; }
 
+/*lists*/
+
+.no-bullet { list-style: none; }
+
 /*/////////////////////////////////////////////////
 =Navigation
 /////////////////////////////////////////////////*/
