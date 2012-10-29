@@ -294,11 +294,13 @@ function nen_get_images($size = 'thumbnail', $mime = 'image') {
  * Loop Handling
  */
 
-function nen_home_pagesize( $query ) {
-    if ( is_post_type_archive( 'resources' ) ) {
-        //Display only 1 post for the original blog archive
-        $query->query_vars['posts_per_page'] = 50;
-        return;
-    }
-}
-add_action('pre_get_posts', 'nen_home_pagesize', 1);
+function nen_resources_query( $query ) {
+	if ( is_post_type_archive( 'resources' ) ) {
+      //Display only 1 post for the original blog archive
+      $query->query_vars['posts_per_page'] = 50;
+      $query->query_vars['taxonomy_name'] = 'section';
+      return;
+		}
+  }
+add_action('pre_get_posts', 'nen_resources_query', 1);
+

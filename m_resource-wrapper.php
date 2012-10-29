@@ -43,18 +43,14 @@ $excerpt = get_the_excerpt();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('r-item three mobile-two column'); ?>>
-	<header class="r-head text-center hide">
-		<h4 class="bold"><?php echo $category[0]->name; ?></h4>
-	</header>
-	<a href="<?php echo get_permalink(); ?>" class="r-stage">
-		<h1 class="r-title"><?php nen_get_resource_title('small','r-subtitle ostrich bold'); ?></h1>
-	</a>
-<?php
-if ( ! empty($excerpt) && $excerpt != '' )
-{
-	echo '<div class="r-content"><h4><a href="' . get_permalink() . '">' . get_the_title() . '</a></h4><p>' . $excerpt . '</p></div>';
-}
-?>
+	<section>
+		<a href="<?php echo get_permalink(); ?>" class="r-stage">
+			<h1 class="r-title bold"><?php nen_get_resource_title('small','r-subtitle ostrich'); ?></h1>
+		</a>
+		<?php if ( ! empty($excerpt) && $excerpt != '' ) {
+		echo '<div class="r-content"><a href="' . get_permalink() . '"><h4>' . get_the_title() . '</h4></a><p>' . $excerpt . '</p></div>';
+		} ?>
+	</section>
 	<footer class="r-meta">
 		<div class="r-format r-popup-trigger left" data-target="#r-format-<?php echo $post->ID ?>">
 			<i class="<?php echo $format_icon[ $format ] ?>"></i>

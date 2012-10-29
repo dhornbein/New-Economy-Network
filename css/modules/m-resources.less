@@ -49,6 +49,8 @@ Module - Resources
 	position:relative;
 	overflow:hidden;
 
+	+ .r-item:last-child { float:left; }
+
 	&:hover {
 
 		.r-content {
@@ -73,10 +75,14 @@ Module - Resources
 		display:block;
 		height: @normal-box-height;
 		margin:0;
-		padding:.25em;
+		padding:.75em;
 		
 		.r-title {
+			font-size:200%;
 
+			.r-subtitle {
+				display:block;
+			}
 		}
 	}
 

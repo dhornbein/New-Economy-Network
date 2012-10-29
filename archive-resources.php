@@ -13,7 +13,6 @@ get_header(); ?>
 			<section id="primary" class="content-area twelve column">
 				<div id="content" class="site-content" role="main">
 			
-				<?php if ( have_posts() ) : ?>
 			
 					<header class="page-header">
 						<div class="row">
@@ -52,7 +51,7 @@ get_header(); ?>
 						if ( $count > 0 ){
 						    echo '<ul class="nav-bar">';
 						    foreach ( $terms as $term ) {
-						      echo '<li><a class="clean" href="' . get_term_link( $term->slug, $term->taxonomy ) . '" title="' . sprintf(__("View all post filed under %s", "my_localization_domain"), $term->name) . '">' . $term->name . '</li>';
+						      echo '<li><a class="clean" href="' . get_term_link( $term->slug, $term->taxonomy ) . '" title="' . sprintf(__("View all post filed under %s", "my_localization_domain"), $term->name) . '">' . $term->name . '</a></li>';
 						       
 						    }
 						    echo '</ul>';
@@ -72,23 +71,45 @@ get_header(); ?>
 						    </ul>
 						  </li>
 						</ul> -->
-					</nav>
-			
+					</nav>					
+
+					<?php $sections = get_terms( 'section', 'hide_empty=0' ); 
+
+					$post_type = 'resources';
+			    $tax = 'section';
+
+					foreach ($sections as $section) {
+						$args = array(
+	              'post_type'         => $post_type,
+	              "$tax"              => $section->slug,
+	              'post_status'       => 'publish',
+	              'posts_per_page'    => -1,
+	          );
+
+						$section_query = null;
+						$section_query = new WP_Query($args);
+					?>
+
 					<div class="row full collapse">
-						<?php while ( have_posts() ) : the_post(); ?>
+						<div class="column">
+							<h1><?php echo $section->name ?> </h1>
+						</div>
+						<div class="six column end">
+							<p><?php echo $section->description ?></p>
+						</div>
+						<hr>
+
+						<?php while ($section_query->have_posts()) : $section_query->the_post(); ?>
 							
 							<?php get_template_part( 'm_resource', 'wrapper' ); ?>
 				
 						<?php endwhile; ?>
-				
-				
-					<?php else : ?>
-				
-						<?php get_template_part( 'no-results', 'archive' ); ?>
-				
-					<?php endif; ?>
-			
-					</div><!-- .row -->
+						
+					</div>
+					<hr class="space">
+						
+					<?php } #end foreach ?>
+
 				</div><!-- #content .site-content -->
 			</section><!-- #primary .content-area -->
 
