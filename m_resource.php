@@ -11,8 +11,13 @@
 	<section>
 		<a href="<?php echo get_permalink(); ?>" class="r-stage">
 			<h1 class="r-title bold"><?php nen_get_resource_title('small','r-subtitle ostrich'); ?></h1>
+		<?php 
+
+		$excerpt = '';
+		$excerpt = get_the_excerpt();
+
+		if ( ! empty($excerpt) && $excerpt != '' ) {
+		echo '<div class="r-content"><h4>' . get_the_title() . '</h4><p>' . $excerpt . '</p></div>';
+		} ?>
 		</a>
-		<?php if ( ! empty($excerpt) && $excerpt != '' ) {
-		echo '<div class="r-content"><a href="' . get_permalink() . '"><h4>' . get_the_title() . '</h4></a><p>' . $excerpt . '</p></div>';
-		} else { echo '<div class="r-content">Nothing to see here</div>'; } ?>
 	</section>

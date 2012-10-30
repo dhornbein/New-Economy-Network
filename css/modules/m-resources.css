@@ -5,7 +5,8 @@ Module - Resources
   padding: 0 0 1.5em 0;
 }
 .r-item {
-  border: 2px solid white;
+  background-color: #FFF;
+  border: .5em solid #F0F0F0;
   margin: 0 !important;
   padding: 0;
   position: relative;
@@ -109,6 +110,7 @@ Module - Resources
   height: 1.5em;
   position: absolute;
   bottom: 0;
+  padding-left: .25em;
   width: 100%;
   left: 0;
   z-index: 1;

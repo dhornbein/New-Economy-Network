@@ -256,8 +256,11 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 function new_excerpt_more($more) {
        global $post;
-	#return '&hellip;';
-	return '&hellip; <a href="'. get_permalink($post->ID) . '"><small>Read the Rest</small></a>';
+	if ( is_post_type_archive( 'resources' ) ) {
+		return '&hellip;';
+	} else {
+		return '&hellip; <a href="'. get_permalink($post->ID) . '"><small>Read the Rest</small></a>';
+	}
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 

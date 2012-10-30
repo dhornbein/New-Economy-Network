@@ -27,30 +27,12 @@ get_header(); ?>
 		        </div>
 		      </div>
 				</section>
-
-				<section id="about" role="inner-page">
-				  <div class="row">
-				    <div class="tweleve column">
-					    <h1 class="c-green">What is the New Economy?</h1>
-				    	<?php $about_id=989; $about_post = get_page($about_id); echo apply_filters('the_content', $about_post->post_content);  ?>
-				    </div>
-				  </div>
-				  <div class="row">
-				    <div class="twelve column">
-				      <a class="btn" href="<?php echo get_permalink( $about_id ) ?>">
-				        <span class="h4">Learn More</span>
-				      </a>
-				      <a class="btn secondary" href="#getinvolved">
-				        <span class="h4">Get Involved</span>
-				      </a>
-				    </div>
-				  </div>
-				</section>
-
-				<section id="getinvolved" role="inner-page">
+				
+				<section id="getinvolved">
+					<hr class="space">
 					<div class="row collapse">
 				    <div class="six column">
-				      <h1 class="c-red">Get Involved</h1>
+				      <h1 class="c-red huge">Get Involved</h1>
 				    </div>
 				    <div class="six column">
 				      <form action="">
@@ -66,7 +48,7 @@ get_header(); ?>
 				      </form>
 				    </div>
 				  </div>
-					<div class="row">
+				  <div class="row">
 
 						<?php 
 							$menu_name = 'get_involved';
@@ -130,20 +112,23 @@ get_header(); ?>
 					    echo $menu_list;
 						?>
 					</div>
-					<div class="row">
-						<div class="four column">
-							<div class="panel">
-								<h2>The Network</h2>
-								<p>
-									Lorem <span class="has-tip" title="this is a test">ipsum</span> dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-								</p>
-							</div>
-						</div>
+				</section>
+
+				<section id="about" role="inner-page">
+				  <div class="row">
+				    <div class="eight column">
+					    <h1 class="c-green">What is the New Economy?</h1>
+				    	<?php $about_id=989; $about_post = get_page($about_id); echo apply_filters('the_content', $about_post->post_content);  ?>
+						  <div class="row">
+					      <a class="btn" href="<?php echo get_permalink( $about_id ) ?>">
+					        <span class="h4">Learn More</span>
+					      </a>
+					      <a class="btn secondary" href="#getinvolved">
+					        <span class="h4">Get Involved</span>
+					      </a>
+						  </div>
+				    </div>
+
 						<div class="four column">
 							<?php do_action( 'before_sidebar' ); ?>
 							<?php if ( ! dynamic_sidebar( 'home-sidebar' ) ) : ?>
@@ -170,28 +155,49 @@ get_header(); ?>
 
 							<?php endif; // end sidebar widget area ?>
 						</div>
-						<ul class="four column m-loop">
-							<h2><a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Blog' ) ) ); ?>">Blog</a></h2>
-							<?php query_posts( 'posts_per_page=5' ); $i = 0 ?>
+
+				  </div>
+
+				</section>
+
+				<section id="blog" role="inner-page">
+					<div class="row">
+						<h1><a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Blog' ) ) ); ?>">Blog</a></h1>
+						<div class="eight column m-loop">
+							<?php query_posts( 'posts_per_page=12' ); $i = 0 ?>
 			        <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); $i++ ?>
 
-			        				<li class="lp-post row collapse">
+			        				<article class="lp-post row collapse">
 				                <div class="lp-date"><small><?php the_time("F jS, Y"); ?></small></div>
 		        						<h4 class="lp-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
-		        						<?php if($i <= 2) : ?>
-				                <!-- <div class="lp-date left"><?php the_time("d<b>M</b>Y"); ?></div> -->
+		        						<?php if($i <= 3) : ?>
+				                <div class="lp-content"><?php the_content(); ?></div>
+					              <?php else : ?>
 				                <div class="lp-excerpt"><?php the_excerpt(); ?></div>
 				              	<?php endif; ?>
-			        				</li>
+			        				</article>
 
 			        <?php endwhile; ?>
 
-			        <li class="row text-center"><a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Blog' ) ) ); ?>">Read More&hellip;</a></li>
+			        <div class="row text-center"><a href="<?php echo esc_url( get_permalink( get_page_by_title( 'Blog' ) ) ); ?>">Read More&hellip;</a></div>
 
 			        <?php else: ?> 
 			                <p><small>Nothing here, check back later</small></p>
 			        <?php endif; ?>
-						</ul>
+						</div>
+						<div class="four column">
+							<div class="panel">
+								<h2>The Network</h2>
+								<p>
+									Lorem <span class="has-tip" title="this is a test">ipsum</span> dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+									consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+									cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+									proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+								</p>
+							</div>
+						</div>
 					</div>
 				</section>
 

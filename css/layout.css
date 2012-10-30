@@ -277,7 +277,7 @@ section[role="inner-page"] {
   padding: 1.5em 0;
 }
 
-section[role="inner-page"] h1:first-child { font-size:450%; margin-bottom: 0.222em; }
+section[role="inner-page"] h1:first-child, h1.huge { font-size:450%; margin-bottom: 0.222em; }
 
 /* ==Stage
 ----------------------------------------------- */

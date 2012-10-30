@@ -36,19 +36,15 @@ if ( $sections ) {
 	}
 }
 
-$excerpt = '';
-$excerpt = get_the_excerpt();
-
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('r-item three mobile-two column'); ?>>
 
 	<?php get_template_part( 'm_resource', get_post_format() ); ?>
-	
+
 	<footer class="r-meta">
 		<div class="r-format r-popup-trigger left" data-target="#r-format-<?php echo $post->ID ?>">
-			<i class="<?php echo $format_icon[ $format ] ?>"></i>
+			<i class="<?php echo $format_icon[ $format ] ?> icon-large"></i>
 			<div id="r-format-<?php echo $post->ID ?>" class="r-popup">
 				<h2 class="bold collapse">This is a <?php echo $format ?> format</h2>
 			</div>
