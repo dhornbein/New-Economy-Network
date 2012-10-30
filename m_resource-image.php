@@ -21,9 +21,11 @@ else :
 
 endif; ?>
 
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?> style="background-image: url(<?php echo $feature_img ?>)">
-  <div class="r-well text-center">
-    <h2 class="r-title ostrich"><?php the_title(); ?></h2>
-    <div class="r-meta"><a class="btn" href="<?php echo get_permalink(); ?>">View</a></div>
-  </div>
-</div>
+	<section>
+		<a href="<?php echo get_permalink(); ?>" class="r-stage"<?php echo ' style="background-image:url(' . $feature_img . ')"' ?>>
+			<h1 class="r-title bold"><?php nen_get_resource_title('small','r-subtitle ostrich'); ?></h1>
+		</a>
+		<?php if ( ! empty($excerpt) && $excerpt != '' ) {
+		echo '<div class="r-content"><a href="' . get_permalink() . '"><h4>' . get_the_title() . '</h4></a><p>' . $excerpt . '</p></div>';
+		} ?>
+	</section>

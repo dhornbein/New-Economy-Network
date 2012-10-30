@@ -5,8 +5,6 @@ Module - Resources
   padding: 0 0 1.5em 0;
 }
 .r-item {
-  background-size: cover;
-  background-position: center center;
   border: 2px solid white;
   margin: 0 !important;
   padding: 0;
@@ -43,6 +41,9 @@ Module - Resources
   height: 1.5em;
 }
 .r-item .r-stage {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
   border: none;
   display: block;
   height: 200px;
@@ -54,6 +55,12 @@ Module - Resources
 }
 .r-item .r-stage .r-title .r-subtitle {
   display: block;
+}
+.r-item .r-stage-video {
+  height: 200px;
+}
+.r-item .r-stage-video .video-embed {
+  height: 100%;
 }
 .r-item .r-content {
   background-color: #e69b53;

@@ -1,4 +1,10 @@
 <?php
+
+$mtime = microtime(); 
+$mtime = explode(" ",$mtime); 
+$mtime = $mtime[1] + $mtime[0]; 
+$starttime = $mtime; 
+
 /**
  * The template for displaying Archive pages.
  *
@@ -113,4 +119,11 @@ get_header(); ?>
 				</div><!-- #content .site-content -->
 			</section><!-- #primary .content-area -->
 
-<?php get_footer(); ?>
+<?php get_footer(); 
+$mtime = microtime(); 
+$mtime = explode(" ",$mtime); 
+$mtime = $mtime[1] + $mtime[0]; 
+$endtime = $mtime; 
+$totaltime = ($endtime - $starttime); 
+echo "This page was created in ".$totaltime." seconds"; 
+?>

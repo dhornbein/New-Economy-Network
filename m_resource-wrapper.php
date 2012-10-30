@@ -43,14 +43,9 @@ $excerpt = get_the_excerpt();
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class('r-item three mobile-two column'); ?>>
-	<section>
-		<a href="<?php echo get_permalink(); ?>" class="r-stage">
-			<h1 class="r-title bold"><?php nen_get_resource_title('small','r-subtitle ostrich'); ?></h1>
-		</a>
-		<?php if ( ! empty($excerpt) && $excerpt != '' ) {
-		echo '<div class="r-content"><a href="' . get_permalink() . '"><h4>' . get_the_title() . '</h4></a><p>' . $excerpt . '</p></div>';
-		} ?>
-	</section>
+
+	<?php get_template_part( 'm_resource', get_post_format() ); ?>
+	
 	<footer class="r-meta">
 		<div class="r-format r-popup-trigger left" data-target="#r-format-<?php echo $post->ID ?>">
 			<i class="<?php echo $format_icon[ $format ] ?>"></i>
